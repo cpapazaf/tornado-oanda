@@ -28,13 +28,14 @@ class OandaRatesServer(OandaStreamListener):
     def handle_stream(self, data, device):
 
         oanda_prices = json.loads(data.decode("utf-8"))
+        logger.debug("Got prices: {}".format(oanda_prices))
+
         if 'heartbeat' in oanda_prices:
             # TODO: handle heartbeats
             pass
 
         if 'tick' in oanda_prices:
             instrument_data = oanda_prices['tick']
-            logger.debug("Got data {}".format(instrument_data))
             for spec in self.handlers:
                 regular_expression, callback = spec
                 match = re.match(regular_expression, instrument_data['instrument'])
@@ -65,6 +66,8 @@ class OandaEventsServer(OandaStreamListener):
     def handle_stream(self, data, device):
 
         oanda_events = json.loads(data.decode("utf-8"))
+        logger.debug("Got events: {}".format(oanda_events))
+
         if 'heartbeat' in oanda_events:
             # TODO: handle heartbeats
             pass

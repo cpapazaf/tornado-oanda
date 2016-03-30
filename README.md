@@ -11,6 +11,10 @@ Oanda forex trading stream service for tornado web server
     from tornado_oanda.oanda_server import OandaRatesServer, OandaEventsServer
     from tornado.gen import coroutine
     
+    import logging
+    logger = logging.getLogger('tornado_oanda')
+    logger.setLevel(logging.DEBUG)
+    
     
     @coroutine
     def eur_usd_prices(instrument, bid, ask, time):
@@ -21,6 +25,7 @@ Oanda forex trading stream service for tornado web server
     def eur_usd_events(transaction):
         # TODO: do things here
     
+
     if __name__ == '__main__':
     
         token = ""

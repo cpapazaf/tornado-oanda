@@ -38,7 +38,7 @@ class OandaStreamListener(object):
         request_args['params'] = params
 
         url = '%s/%s' % (self.api_url, endpoint)
-        print("Will connect to {} with args {}".format(url, request_args))
+        logger.debug("Will connect to {} with args {}".format(url, request_args))
         connection = self.client.get(url, **request_args)
 
         callback = functools.partial(self._handle_connection, connection)
