@@ -1,0 +1,2 @@
+tornado==4.3
+git+https://github.com/oanda/oandapy.git

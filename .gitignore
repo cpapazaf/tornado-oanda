@@ -1,0 +1,9 @@
+*.pyc
+*.pyo
+*.so
+*.class
+*~
+build/
+/dist/
+.idea
+example.py
