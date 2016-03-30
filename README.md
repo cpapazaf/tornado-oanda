@@ -8,7 +8,7 @@ Oanda forex trading stream service for tornado web server
 ##Example Usage
 
     import tornado.ioloop
-    from tornado_oanda.oanda_server import OandaRatesServer, OandaEventsServer
+    from tornado_oanda import *
     from tornado.gen import coroutine
     
     import logging
